@@ -141,7 +141,7 @@ public class MergeSorter {
 
     private int[] bubbleSort(int[] workArr) {
         BubbleSorter bubbleSorter = new BubbleSorter(workArr);
-        bubbleSorter.bubbleSort();
+        bubbleSorter.sort();
         return bubbleSorter.getArr();
     }
 
