@@ -1,9 +1,9 @@
 package firstpractise.sorters;
 
-public class ReverseBubblerSorter extends AbstractBubbleSorter {
+public class ReverseBubbleSorter extends AbstractBubbleSorter {
     private int[] arr;
 
-    public ReverseBubblerSorter(int[] arr) {
+    public ReverseBubbleSorter(int[] arr) {
         this.arr = arr;
     }
 

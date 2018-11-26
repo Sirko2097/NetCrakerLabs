@@ -146,9 +146,9 @@ public class MergeSorter {
     }
 
     private int[] reverseBubble(int[] workArr) {
-        BubbleSorter bubbleSorter = new BubbleSorter(workArr);
-        bubbleSorter.reverseBubbleSorter();
-        return bubbleSorter.getArr();
+        ReverseBubbleSorter reverseBubbleSorter = new ReverseBubbleSorter(workArr);
+        reverseBubbleSorter.sort();
+        return reverseBubbleSorter.getArr();
     }
 
     private int[] quickSort(int[] workArr) {
