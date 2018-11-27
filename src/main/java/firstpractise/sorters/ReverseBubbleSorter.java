@@ -1,5 +1,11 @@
 package firstpractise.sorters;
 
+/**
+ * This class is realization of reverse bubble sort.<br>
+ * @see BubbleSorter
+ *
+ * @author Serhii Muzhylivskyi
+ * */
 public class ReverseBubbleSorter extends AbstractBubbleSorter {
     private int[] arr;
 

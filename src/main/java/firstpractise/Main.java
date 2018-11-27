@@ -2,7 +2,7 @@ package firstpractise;
 
 import firstpractise.analyzer.Analyzer;
 import firstpractise.annotations.SortedArray;
-import firstpractise.fillers.Generator;
+import firstpractise.fillers.Filler;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,15 +15,15 @@ public class Main {
         System.out.print("Input amount of elements: ");
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             int n = Integer.parseInt(reader.readLine());
-            Generator generator = new Generator(n);
-            Class<?> c = generator.getClass();
+            Filler filler = new Filler(n);
+            Class<?> c = filler.getClass();
             Method m = c.getMethod("getSortedArray");
             SortedArray anno = m.getAnnotation(SortedArray.class);
 
-            new Analyzer("Sorted", Generator.getSortedArray()).analyze();
-            new Analyzer("Reverse sorted array", Generator.getReverseSortedArray()).analyze();
-            new Analyzer("Sorted random array", Generator.getSortedArrayWithRandomElement()).analyze();
-            new Analyzer("Random located elements", Generator.getArrayWithRandomLocatedElements()).analyze();
+            new Analyzer("Sorted", Filler.getSortedArray()).analyze();
+            new Analyzer("Reverse sorted array", Filler.getReverseSortedArray()).analyze();
+            new Analyzer("Sorted random array", Filler.getSortedArrayWithRandomElement()).analyze();
+            new Analyzer("Random located elements", Filler.getArrayWithRandomLocatedElements()).analyze();
         } catch (IOException | NoSuchMethodException ex) {
             ex.printStackTrace();
         }

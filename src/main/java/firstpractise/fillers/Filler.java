@@ -16,12 +16,12 @@ import firstpractise.annotations.SortedArrayWithRandomElement;
  * This class fill array of n length<br>
  * @author Serhii Muzhylivskyi
  * */
-public class Generator {
+public class Filler {
 
     private static int n;
 
-    public Generator(int n) {
-        Generator.n = n;
+    public Filler(int n) {
+        Filler.n = n;
     }
 
     @SortedArray

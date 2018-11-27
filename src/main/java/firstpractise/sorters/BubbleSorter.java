@@ -12,7 +12,7 @@ public class BubbleSorter extends AbstractBubbleSorter {
         this.arr = arr;
     }
 
-    int[] getArr() {
+    public int[] getArr() {
         return arr;
     }
 
