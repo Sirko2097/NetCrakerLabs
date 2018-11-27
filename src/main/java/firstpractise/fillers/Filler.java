@@ -1,4 +1,10 @@
-package firstpractise.filters;
+package firstpractise.fillers;
+
+import firstpractise.annotations.ArrayWithRandomLocatedElements;
+import firstpractise.annotations.ReverseSortedArray;
+import firstpractise.annotations.SortedArray;
+import firstpractise.annotations.SortedArrayWithRandomElement;
+
 
 /*
  * кожний метод анотувати(власна анотація(див. завдання))
@@ -6,15 +12,20 @@ package firstpractise.filters;
  *
  * анотація матиме ім'я, для зручного виклику (array filler)
  * */
-public class Generator {
+/**
+ * This class fill array of n length<br>
+ * @author Serhii Muzhylivskyi
+ * */
+public class Filler {
 
-    private int n;
+    private static int n;
 
-    public Generator(int n) {
-        this.n = n;
+    public Filler(int n) {
+        Filler.n = n;
     }
 
-    public int[] getSortedArray() {
+    @SortedArray
+    public static int[] getSortedArray() {
         int[] arr = new int[n];
 
         for (int i = 0; i < arr.length; i++) {
@@ -24,7 +35,8 @@ public class Generator {
         return arr;
     }
 
-    public int[] getSortedArrayWithRandomElement() {
+    @SortedArrayWithRandomElement
+    public static int[] getSortedArrayWithRandomElement() {
         int[] arr = new int[n + 1];
 
         for (int i = 0; i < n; i++) {
@@ -36,7 +48,8 @@ public class Generator {
         return arr;
     }
 
-    public int[] getReverseSortedArray() {
+    @ReverseSortedArray
+    public static int[] getReverseSortedArray() {
         int[] arr = new int[n];
 
         for (int i = 0; i < arr.length; i++) {
@@ -46,7 +59,8 @@ public class Generator {
         return arr;
     }
 
-    public int[] getArrayWithRandomLocatedElements() {
+    @ArrayWithRandomLocatedElements
+    public static int[] getArrayWithRandomLocatedElements() {
         int[] arr = new int[n];
         int i = 0;
         int index;
@@ -59,3 +73,6 @@ public class Generator {
         return arr;
     }
 }
+
+
+

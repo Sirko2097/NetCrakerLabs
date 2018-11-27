@@ -8,6 +8,13 @@ import firstpractise.sorters.ReverseBubbleSorter;
 
 import java.util.*;
 
+/**
+ * This class is using for calculating sorting time.<br>
+ * It takes type of array filling and the array.<br>
+ * Then all information its writes into LinkerHashMap.
+ *
+ * @author Sergii Muzhylivskyi
+ * */
 public class Analyzer {
 
     private String generatorType;
@@ -30,13 +37,13 @@ public class Analyzer {
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Bubble", end - start);
 
-        ReverseBubbleSorter reverse = new ReverseBubbleSorter(arr);
+        ReverseBubbleSorter reverse = new ReverseBubbleSorter(this.arr);
         start = new GregorianCalendar().getTimeInMillis();
         reverse.sort();
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Reverse Bubble", end - start);
 
-        QuickSorter quickSorter = new QuickSorter(arr);
+        QuickSorter quickSorter = new QuickSorter(this.arr);
         start = new GregorianCalendar().getTimeInMillis();
         quickSorter.sort();
         end = new GregorianCalendar().getTimeInMillis();
@@ -48,37 +55,37 @@ public class Analyzer {
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Arrays.sort()", end - start);
 
-        MergeSorter mergeSorter = new MergeSorter(arr);
+        MergeSorter mergeSorter = new MergeSorter(this.arr);
         start = new GregorianCalendar().getTimeInMillis();
         mergeSorter.bothBubbleSort();
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Both Bubbles", end - start);
 
-        mergeSorter.setArr(arr);
+        mergeSorter.setArr(this.arr);
         start = new GregorianCalendar().getTimeInMillis();
         mergeSorter.bubbleAndQuickSort();
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Bubble and Quick", end - start);
 
-        mergeSorter.setArr(arr);
+        mergeSorter.setArr(this.arr);
         start = new GregorianCalendar().getTimeInMillis();
         mergeSorter.bubbleAndArraysSort();
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Bubble and Arrays.sort()", end - start);
 
-        mergeSorter.setArr(arr);
+        mergeSorter.setArr(this.arr);
         start = new GregorianCalendar().getTimeInMillis();
         mergeSorter.reverseBubbleAndQuickSort();
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Reverse and Quick", end - start);
 
-        mergeSorter.setArr(arr);
+        mergeSorter.setArr(this.arr);
         start = new GregorianCalendar().getTimeInMillis();
         mergeSorter.reverseBubbleAndArraysSort();
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Reverse and Arrays.sort()", end - start);
 
-        mergeSorter.setArr(arr);
+        mergeSorter.setArr(this.arr);
         start = new GregorianCalendar().getTimeInMillis();
         mergeSorter.quickAndArraysSort();
         end = new GregorianCalendar().getTimeInMillis();

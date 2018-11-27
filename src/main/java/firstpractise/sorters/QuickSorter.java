@@ -1,6 +1,10 @@
 package firstpractise.sorters;
 
-
+/**
+ * Quick Sort implementation.
+ *
+ * @author Serhii Muzhylivskyi
+ * */
 public class QuickSorter extends AbstractSorter {
 
     private int[] arr;
