@@ -10,9 +10,6 @@ public class MergeSorter {
         this.arr = arr;
     }
 
-    public int[] getArr() {
-        return arr;
-    }
 
     public void setArr(int[] arr) {
         this.arr = arr;
@@ -141,14 +138,14 @@ public class MergeSorter {
 
     private int[] bubbleSort(int[] workArr) {
         BubbleSorter bubbleSorter = new BubbleSorter(workArr);
-        bubbleSorter.bubbleSort();
+        bubbleSorter.sort();
         return bubbleSorter.getArr();
     }
 
     private int[] reverseBubble(int[] workArr) {
-        BubbleSorter bubbleSorter = new BubbleSorter(workArr);
-        bubbleSorter.reverseBubbleSorter();
-        return bubbleSorter.getArr();
+        ReverseBubbleSorter reverseBubbleSorter = new ReverseBubbleSorter(workArr);
+        reverseBubbleSorter.sort();
+        return reverseBubbleSorter.getArr();
     }
 
     private int[] quickSort(int[] workArr) {
