@@ -1,9 +1,7 @@
 package firstpractise.sorters;
 
-/*
-* Swap має бути приватним/захищеним
-* */
-public class QuickSorter {
+
+public class QuickSorter extends AbstractSorter {
 
     private int[] arr;
 
@@ -55,8 +53,8 @@ public class QuickSorter {
         int rightPtr = high - 1;
 
         while (true) {
-            while (arr[++leftPtr] < pivot);
-            while (arr[--rightPtr] > pivot);
+            while (arr[++leftPtr] < pivot) ;
+            while (arr[--rightPtr] > pivot) ;
 
             if (leftPtr >= rightPtr) {
                 break;
@@ -93,7 +91,7 @@ public class QuickSorter {
                 swap(low, high);
             }
             if (arr[high - 1] > arr[high]) {
-                swap(high- 1, high);
+                swap(high - 1, high);
             }
         }
     }

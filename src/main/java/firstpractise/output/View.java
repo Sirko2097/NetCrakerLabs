@@ -14,7 +14,7 @@ public class View {
 
     public void printAnswer() {
         System.out.println(type);
-        times.forEach((k, v) -> System.out.println(k +": " + v));
+        times.forEach((k, v) -> System.out.println(k + ": " + v));
         System.out.println();
     }
 }

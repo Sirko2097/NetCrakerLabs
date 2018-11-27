@@ -1,6 +1,6 @@
 package firstpractise.sorters;
 
-public class BubbleSorter extends AbstractBubbleSorter{
+public class BubbleSorter extends AbstractBubbleSorter {
 
     private int[] arr;
 
@@ -11,7 +11,6 @@ public class BubbleSorter extends AbstractBubbleSorter{
     int[] getArr() {
         return arr;
     }
-
 
     @Override
     public void sort() {

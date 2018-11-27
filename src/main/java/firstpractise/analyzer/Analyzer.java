@@ -4,14 +4,15 @@ import firstpractise.output.View;
 import firstpractise.sorters.BubbleSorter;
 import firstpractise.sorters.MergeSorter;
 import firstpractise.sorters.QuickSorter;
+import firstpractise.sorters.ReverseBubbleSorter;
 
 import java.util.*;
 
 public class Analyzer {
 
     private String generatorType;
-    private final int arr[];
-    private int workSpace[];
+    private final int[] arr;
+    private int[] workSpace;
 
     public Analyzer(String generatorType, int[] arr) {
         this.generatorType = generatorType;
@@ -25,13 +26,13 @@ public class Analyzer {
 
         BubbleSorter bubbleSorter = new BubbleSorter(arr);
         start = new GregorianCalendar().getTimeInMillis();
-        bubbleSorter.bubbleSort();
+        bubbleSorter.sort();
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Bubble", end - start);
 
-        BubbleSorter reverse = new BubbleSorter(arr);
+        ReverseBubbleSorter reverse = new ReverseBubbleSorter(arr);
         start = new GregorianCalendar().getTimeInMillis();
-        reverse.reverseBubbleSorter();
+        reverse.sort();
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Reverse Bubble", end - start);
 
