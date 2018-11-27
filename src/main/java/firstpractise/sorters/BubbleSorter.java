@@ -1,5 +1,9 @@
 package firstpractise.sorters;
 
+/**
+ * Bubble sort realization
+ * @author Serhii Muzhylivskyi
+ * */
 public class BubbleSorter extends AbstractBubbleSorter {
 
     private int[] arr;
@@ -14,16 +18,19 @@ public class BubbleSorter extends AbstractBubbleSorter {
 
     @Override
     public void sort() {
-        int tempElement;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 1; j < (arr.length - i); j++) {
                 if (arr[j - 1] > arr[j]) {
-                    tempElement = arr[j - 1];
-                    arr[j - 1] = arr[j];
-                    arr[j] = tempElement;
+                    swap(j - 1, j);
                 }
             }
         }
+    }
+
+    private void swap(int left, int right) {
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
     }
 
 }
