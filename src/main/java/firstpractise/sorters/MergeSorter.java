@@ -156,5 +156,6 @@ public class MergeSorter {
 
     private void merge(int[] workSpace) {
         System.arraycopy(workSpace, 0, arr, 0, workSpace.length);
+        Arrays.sort(arr);
     }
 }

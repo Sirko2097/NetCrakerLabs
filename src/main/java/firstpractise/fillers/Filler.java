@@ -1,19 +1,14 @@
 package firstpractise.fillers;
 
-import firstpractise.annotations.ArrayWithRandomLocatedElements;
-import firstpractise.annotations.ReverseSortedArray;
-import firstpractise.annotations.SortedArray;
-import firstpractise.annotations.SortedArrayWithRandomElement;
+import firstpractise.annotations.ArrayFiller;
 
 
-/*
- * кожний метод анотувати(власна анотація(див. завдання))
- * або додати анотацію для класу.
- *
- * анотація матиме ім'я, для зручного виклику (array filler)
- * */
 /**
  * This class fill array of n length<br>
+ *
+ * Method can be called with using reflection and annotations.
+ * @see firstpractise.Main
+ *
  * @author Serhii Muzhylivskyi
  * */
 public class Filler {
@@ -24,7 +19,7 @@ public class Filler {
         Filler.n = n;
     }
 
-    @SortedArray
+    @ArrayFiller(name = "Sorted")
     public static int[] getSortedArray() {
         int[] arr = new int[n];
 
@@ -35,7 +30,7 @@ public class Filler {
         return arr;
     }
 
-    @SortedArrayWithRandomElement
+    @ArrayFiller(name = "Sorted random array")
     public static int[] getSortedArrayWithRandomElement() {
         int[] arr = new int[n + 1];
 
@@ -48,7 +43,7 @@ public class Filler {
         return arr;
     }
 
-    @ReverseSortedArray
+    @ArrayFiller(name = "Reverse sorted array")
     public static int[] getReverseSortedArray() {
         int[] arr = new int[n];
 
@@ -59,7 +54,7 @@ public class Filler {
         return arr;
     }
 
-    @ArrayWithRandomLocatedElements
+    @ArrayFiller(name = "Random located elements")
     public static int[] getArrayWithRandomLocatedElements() {
         int[] arr = new int[n];
         int i = 0;
