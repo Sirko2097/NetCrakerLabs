@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 public class MergeSorter {
 
+    public int[] getArr() {
+        return arr;
+    }
+
     private int[] arr;
 
     public MergeSorter(int[] arr) {

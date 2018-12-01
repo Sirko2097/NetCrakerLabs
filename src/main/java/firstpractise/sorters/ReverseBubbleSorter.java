@@ -10,6 +10,7 @@ public class ReverseBubbleSorter extends AbstractBubbleSorter {
     private int[] arr;
 
     public ReverseBubbleSorter(int[] arr) {
+        super(arr);
         this.arr = arr;
     }
 

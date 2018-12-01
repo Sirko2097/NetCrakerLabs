@@ -4,6 +4,10 @@ public abstract class AbstractSorter {
 
     private int[] arr;
 
+    public AbstractSorter(int[] arr) {
+        this.arr = arr;
+    }
+
     public abstract void sort();
 
     void swap(int left, int right) {

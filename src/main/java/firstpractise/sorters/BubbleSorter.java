@@ -9,6 +9,7 @@ public class BubbleSorter extends AbstractBubbleSorter {
     private int[] arr;
 
     public BubbleSorter(int[] arr) {
+        super(arr);
         this.arr = arr;
     }
 
