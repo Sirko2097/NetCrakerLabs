@@ -17,7 +17,7 @@ public class View {
     }
 /**
  * Method for printing from map.<br>
- * It prints "filler" method and sorting time.
+ * It prints "filler" method and their sorting time.
  * */
     public void printAnswer() {
         System.out.println(type);

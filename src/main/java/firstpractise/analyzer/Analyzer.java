@@ -26,6 +26,12 @@ public class Analyzer {
         this.arr = arr;
     }
 
+    /**
+     * This method calculates sorting for every type of filling.<br>
+     * All information prints to LinkedHashMap and sends it to view class.<br>
+     *
+     * @see View
+     */
     public void analyze() {
         Map<String, Long> time = new LinkedHashMap<>();
         long start;

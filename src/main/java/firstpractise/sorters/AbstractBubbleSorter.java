@@ -1,7 +1,7 @@
 package firstpractise.sorters;
 
 public abstract class AbstractBubbleSorter extends AbstractSorter {
-    public AbstractBubbleSorter(int[] arr) {
+    AbstractBubbleSorter(int[] arr) {
         super(arr);
     }
 
