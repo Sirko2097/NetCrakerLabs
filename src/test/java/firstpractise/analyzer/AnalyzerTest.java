@@ -6,18 +6,10 @@ import firstpractise.sorters.BubbleSorter;
 import firstpractise.sorters.MergeSorter;
 import firstpractise.sorters.QuickSorter;
 import firstpractise.sorters.ReverseBubbleSorter;
-import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.Timeout;
-
-import java.util.Arrays;
-import java.util.GregorianCalendar;
-import java.util.concurrent.TimeUnit;
-
 
 public class AnalyzerTest {
-    int[] arr = new int[9999];
+    private int[] arr = new int[9999];
 
     @Test(timeout = 10000)
     public void analyze() {
