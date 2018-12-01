@@ -27,10 +27,6 @@ public class BubbleSorter extends AbstractBubbleSorter {
         }
     }
 
-    private void swap(int left, int right) {
-        int temp = arr[left];
-        arr[left] = arr[right];
-        arr[right] = temp;
-    }
+
 
 }
