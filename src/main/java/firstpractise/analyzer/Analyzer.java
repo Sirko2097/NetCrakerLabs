@@ -1,5 +1,6 @@
 package firstpractise.analyzer;
 
+import firstpractise.fillers.Filler;
 import firstpractise.output.View;
 import firstpractise.sorters.BubbleSorter;
 import firstpractise.sorters.MergeSorter;
@@ -32,7 +33,7 @@ public class Analyzer {
      *
      * @see View
      */
-    public void analyze() {
+    public void analyze(Filler filler) {
         Map<String, Long> time = new LinkedHashMap<>();
         long start;
         long end;
@@ -97,7 +98,7 @@ public class Analyzer {
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Quick and Arrays.sort()", end - start);
 
-        new View(time, generatorType).printAnswer();
+        new View(time, generatorType).printAnswer(filler);
     }
 
     private void backup() {

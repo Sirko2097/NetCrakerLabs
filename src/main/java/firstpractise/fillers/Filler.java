@@ -13,6 +13,10 @@ import firstpractise.annotations.ArrayFiller;
  * */
 public class Filler {
 
+    public static int getN() {
+        return n;
+    }
+
     private static int n;
 
     public Filler(int n) {
