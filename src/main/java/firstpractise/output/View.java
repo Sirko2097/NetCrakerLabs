@@ -2,13 +2,16 @@ package firstpractise.output;
 
 import firstpractise.annotations.ArrayFiller;
 import firstpractise.fillers.Filler;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.*;
 
-import static java.util.Arrays.*;
 
 /**
  * This class is using to output information.
@@ -19,7 +22,7 @@ public class View {
 
     private Map<String, Long> times;
     private String type;
-    private final String name = "Answers.xlsx";
+    private final String NAME = "Answers.xlsx";
 
     public View(Map<String, Long> times, String type) {
         this.times = times;
@@ -49,10 +52,37 @@ public class View {
         }
 
         for (int i = 0; i < Filler.getN(); i++) {
-            rows.add(i);
+            if (i % 10 == 0) {
+                rows.add(i);
+            }
         }
 
+        int rowNumber = 0;
+        int columnNumber = 0;
+        System.out.println("Writing data into Excel");
+        for (XSSFSheet sheet : sheets) {
+            Row row = sheet.createRow(0);
+            for (String column : columns) {
+                Cell cell = row.createCell(++columnNumber);
+                cell.setCellValue(column);
+            }
 
+            columnNumber = 0;
+            for (Integer integer : rows) {
+                row = sheet.createRow(++rowNumber);
+                Cell cell = row.createCell(columnNumber);
+                cell.setCellValue(integer);
+            }
+            rowNumber = 0;
+        }
+
+        try (FileOutputStream fileOutputStream = new FileOutputStream(NAME)) {
+            workbook.write(fileOutputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Done");
 
     }
 }
