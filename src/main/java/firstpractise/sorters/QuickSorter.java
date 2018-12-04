@@ -10,10 +10,11 @@ public class QuickSorter extends AbstractSorter {
     private int[] arr;
 
     public QuickSorter(int[] arr) {
+        super(arr);
         this.arr = arr;
     }
 
-    int[] getArr() {
+    public int[] getArr() {
         return arr;
     }
 
@@ -70,11 +71,6 @@ public class QuickSorter extends AbstractSorter {
         return leftPtr;
     }
 
-    private void swap(int left, int right) {
-        int temp = arr[left];
-        arr[left] = arr[right];
-        arr[right] = temp;
-    }
 
     private void manualSort(int low, int high) {
         int size = high - low + 1;

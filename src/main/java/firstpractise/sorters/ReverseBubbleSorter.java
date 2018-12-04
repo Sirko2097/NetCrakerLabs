@@ -10,6 +10,7 @@ public class ReverseBubbleSorter extends AbstractBubbleSorter {
     private int[] arr;
 
     public ReverseBubbleSorter(int[] arr) {
+        super(arr);
         this.arr = arr;
     }
 
@@ -21,12 +22,6 @@ public class ReverseBubbleSorter extends AbstractBubbleSorter {
                 }
             }
         }
-    }
-
-    private void swap(int left, int right) {
-        int temp = arr[left];
-        arr[left] = arr[right];
-        arr[right] = temp;
     }
 
     public int[] getArr() {

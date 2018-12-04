@@ -9,10 +9,11 @@ public class BubbleSorter extends AbstractBubbleSorter {
     private int[] arr;
 
     public BubbleSorter(int[] arr) {
+        super(arr);
         this.arr = arr;
     }
 
-    public int[] getArr() {
+    int[] getArr() {
         return arr;
     }
 
@@ -27,10 +28,6 @@ public class BubbleSorter extends AbstractBubbleSorter {
         }
     }
 
-    private void swap(int left, int right) {
-        int temp = arr[left];
-        arr[left] = arr[right];
-        arr[right] = temp;
-    }
+
 
 }
