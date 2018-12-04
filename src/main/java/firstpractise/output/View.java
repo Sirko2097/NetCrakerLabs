@@ -22,7 +22,6 @@ public class View {
 
     private Map<String, Long> times;
     private String type;
-    private final String NAME = "Answers.xlsx";
 
     public View(Map<String, Long> times, String type) {
         this.times = times;
@@ -76,6 +75,7 @@ public class View {
             rowNumber = 0;
         }
 
+        String NAME = "Answers.xlsx";
         try (FileOutputStream fileOutputStream = new FileOutputStream(NAME)) {
             workbook.write(fileOutputStream);
         } catch (IOException e) {
