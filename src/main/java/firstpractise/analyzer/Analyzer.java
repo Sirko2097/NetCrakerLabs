@@ -33,8 +33,8 @@ public class Analyzer {
      *
      * @see View
      */
-    public void analyze(Filler filler) {
-        Map<String, Long> time = new LinkedHashMap<>();
+    public LinkedHashMap<String, Long> analyze(Filler filler) {
+        LinkedHashMap<String, Long> time = new LinkedHashMap<>();
         long start;
         long end;
 
@@ -98,7 +98,8 @@ public class Analyzer {
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Quick and Arrays.sort()", end - start);
 
-        new View(time, generatorType).printAnswer(filler);
+//        new View(time, generatorType).printAnswer();
+        return time;
     }
 
     private void backup() {
