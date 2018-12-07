@@ -60,7 +60,7 @@ public class View {
         }
 
         for (int i = Filler.getN() - 1; i >= 0; i--) {
-            if (i % 1000 == 0) {
+            if (i % 10000 == 0) {
                 rows.add(i);
             }
         }
@@ -73,7 +73,7 @@ public class View {
         int rowNumber = 0;
         int columnNumber = 0;
         int i = 0;
-        int step = 0;
+//        int step = 0;
         System.out.println("Writing data into Excel");
         for (XSSFSheet sheet : sheets) {
             Row row = sheet.createRow(0);
@@ -104,8 +104,7 @@ public class View {
             leftAxis.setCrosses(AxisCrosses.AUTO_ZERO);
 
             ChartDataSource<Integer> x = DataSources.fromArray(rowArray);
-            ArrayList<ChartDataSource<Number>> y = new ArrayList<>();
-
+            ArrayList<ChartDataSource<Long>> y = new ArrayList<>();
             ArrayList<Long> timeOfSort = new ArrayList<>();
             for (int k = 0; k < infoAboutTime.get(i).keySet().size() - 1; k++) {
                 timeOfSort.addAll(infoAboutTime.get(i).values());
@@ -113,13 +112,14 @@ public class View {
             }
             Long[] item = new Long[10];
             int it = 0;
-            for (int j = step; j < timeOfSort.size(); j += 10) {
-                item[it] = timeOfSort.get(j);
-                it++;
-            }
-            step++;
-            for (int k = 0; k < 10; k++) {
+            for (int step = 0; step < 10; step++) {
+                for (int j = step; j < timeOfSort.size(); j += 10) {
+                    item[it] = timeOfSort.get(j);
+                    it++;
+                }
                 y.add(DataSources.fromArray(item));
+
+                it = 0;
             }
 
             LineChartSeries series1 = data.addSeries(x, y.get(0));
@@ -153,8 +153,6 @@ public class View {
             for (CTLineSer ser : plotArea.getLineChartArray()[0].getSerArray()) {
                 ser.setSmooth(ctBool);
             }
-
-            y.clear();
             i = 1;
         }
 

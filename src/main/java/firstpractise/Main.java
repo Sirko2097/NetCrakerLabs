@@ -25,7 +25,7 @@ public class Main {
         ArrayList<LinkedHashMap<String, Long>> informationAboutMethods = new ArrayList<>();
         try (BufferedReader ignored = new BufferedReader(new InputStreamReader(System.in))) {
 
-            int n = (int) (Math.random() * 9999);
+            int n = (int) (Math.random() * 60000);
             Filler filler = null;
             for (int delta = 0; delta < 10000; delta += 1000) {
                 n += delta;

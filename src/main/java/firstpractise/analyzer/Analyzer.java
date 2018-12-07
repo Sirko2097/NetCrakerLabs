@@ -15,7 +15,7 @@ import java.util.*;
  * Then all information its writes into LinkerHashMap.
  *
  * @author Sergii Muzhylivskyi
- * */
+ */
 public class Analyzer {
 
     private String generatorType;
@@ -98,11 +98,11 @@ public class Analyzer {
         end = new GregorianCalendar().getTimeInMillis();
         time.put("Quick and Arrays.sort()", end - start);
 
-//        new View(time, generatorType).printAnswer();
         return time;
     }
 
     private void backup() {
         workSpace = arr;
     }
+
 }
