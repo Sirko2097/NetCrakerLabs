@@ -2,8 +2,9 @@ package firstpractise.sorters;
 
 /**
  * Bubble sort realization
+ *
  * @author Serhii Muzhylivskyi
- * */
+ */
 public class BubbleSorter extends AbstractBubbleSorter {
 
     private int[] arr;
@@ -27,7 +28,5 @@ public class BubbleSorter extends AbstractBubbleSorter {
             }
         }
     }
-
-
 
 }

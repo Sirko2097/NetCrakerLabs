@@ -12,7 +12,7 @@ public class AnalyzerTest {
 
     @Test(timeout = 10000)
     public void analyze() {
-        new Filler(9999);
+        new Filler(99999);
         int[] arr = Filler.getArrayWithRandomLocatedElements();
 
         BubbleSorter bubbleSorter = new BubbleSorter(arr);
