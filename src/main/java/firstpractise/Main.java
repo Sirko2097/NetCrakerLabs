@@ -25,7 +25,7 @@ public class Main {
         ArrayList<LinkedHashMap<String, Long>> informationAboutMethods = new ArrayList<>();
         try (BufferedReader ignored = new BufferedReader(new InputStreamReader(System.in))) {
 
-            int n = (int) (Math.random() * 60000);
+            int n = (int) (Math.random() * 6000);
             Filler filler = null;
             for (int delta = 0; delta < 1000; delta += 100) {
                 n += delta;
@@ -45,7 +45,7 @@ public class Main {
                                 informationAboutMethods.add(new Analyzer(arrayFiller.name(),
                                         (int[]) m.invoke(fClass)).analyze(filler));
                                 break;
-                            case "Sorted random array":
+                            case "Sorted array with random element":
                                 informationAboutMethods.add(new Analyzer(arrayFiller.name(),
                                         (int[]) m.invoke(fClass)).analyze(filler));
                                 break;

@@ -60,7 +60,7 @@ public class View {
         }
 
         for (int i = Filler.getN() - 1; i >= 0; i--) {
-            if (i % 10000 == 0) {
+            if (i % 1000 == 0) {
                 rows.add(i);
             }
         }

@@ -34,7 +34,7 @@ public class Filler {
         return arr;
     }
 
-    @ArrayFiller(name = "Sorted random array")
+    @ArrayFiller(name = "Sorted array with random element")
     public static int[] getSortedArrayWithRandomElement() {
         int[] arr = new int[n + 1];
 
