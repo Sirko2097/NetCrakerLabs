@@ -73,7 +73,7 @@ public class View {
         int rowNumber = 0;
         int columnNumber = 0;
         int i = 0;
-//        int step = 0;
+        int counter = 0;
         System.out.println("Writing data into Excel");
         for (XSSFSheet sheet : sheets) {
             Row row = sheet.createRow(0);
@@ -91,7 +91,7 @@ public class View {
             rowNumber = 0;
 
             Drawing drawing = sheet.createDrawingPatriarch();
-            ClientAnchor anchor = drawing.createAnchor(1, 1, 1, 1, 6, 3, 19, 20);
+            ClientAnchor anchor = drawing.createAnchor(1, 1, 1, 1, 1, 3, 19, 20);
 
             Chart chart = drawing.createChart(anchor);
             ChartLegend legend = chart.getOrCreateLegend();
@@ -153,7 +153,8 @@ public class View {
             for (CTLineSer ser : plotArea.getLineChartArray()[0].getSerArray()) {
                 ser.setSmooth(ctBool);
             }
-            i = 1;
+            counter++;
+            i = counter;
         }
 
         String NAME = "Answers.xlsx";
