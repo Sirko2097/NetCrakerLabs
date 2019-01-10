@@ -1,5 +1,10 @@
 package firstpractise.sorters;
 
+import firstpractise.sorters.threads.ArraysSortThread;
+import firstpractise.sorters.threads.BubbleSortThread;
+import firstpractise.sorters.threads.QuickSortThread;
+import firstpractise.sorters.threads.ReverseBubbleSortThread;
+
 import java.util.Arrays;
 
 public class MergeSorter {
@@ -46,32 +51,47 @@ public class MergeSorter {
     private void mergeBubbleSorts(int[] workSpace, int arrLength) {
         int middle = arrLength / 2;
 
-        int[] firsPart = new int[middle];
-        System.arraycopy(workSpace, 0, firsPart, 0, firsPart.length);
-        firsPart = bubbleSort(firsPart);
-        System.arraycopy(firsPart, 0, workSpace, 0, firsPart.length);
+        int[] firstPart = new int[middle];
+        System.arraycopy(workSpace, 0, firstPart, 0, firstPart.length);
+        BubbleSortThread bubbleSortThread = new BubbleSortThread();
+        bubbleSortThread.setArr(firstPart);
 
         int[] secondPart = new int[middle];
-        System.arraycopy(workSpace, firsPart.length, secondPart, 0, secondPart.length);
-        secondPart = reverseBubble(secondPart);
-        System.arraycopy(secondPart, 0, workSpace, firsPart.length, secondPart.length);
+        System.arraycopy(workSpace, firstPart.length, secondPart, 0, secondPart.length);
+        ReverseBubbleSortThread reverseBubbleSortThread = new ReverseBubbleSortThread();
+        reverseBubbleSortThread.setArr(secondPart);
+
+        bubbleSortThread.start();
+        reverseBubbleSortThread.start();
+
+        firstPart = bubbleSortThread.getArr();
+        System.arraycopy(firstPart, 0, workSpace, 0, firstPart.length);
+        secondPart = reverseBubbleSortThread.getArr();
+        System.arraycopy(secondPart, 0, workSpace, firstPart.length, secondPart.length);
 
         merge(workSpace);
-
     }
 
     private void mergeBubbleAndQuickSorts(int[] workSpace, int arrLength) {
         int middle = arrLength / 2;
 
-        int[] firsPart = new int[middle];
-        System.arraycopy(workSpace, 0, firsPart, 0, firsPart.length);
-        firsPart = bubbleSort(firsPart);
-        System.arraycopy(firsPart, 0, workSpace, 0, firsPart.length);
+        int[] firstPart = new int[middle];
+        System.arraycopy(workSpace, 0, firstPart, 0, firstPart.length);
+        BubbleSortThread bubbleSortThread = new BubbleSortThread();
+        bubbleSortThread.setArr(firstPart);
 
         int[] secondPart = new int[middle];
-        System.arraycopy(workSpace, firsPart.length, secondPart, 0, secondPart.length);
-        secondPart = quickSort(secondPart);
-        System.arraycopy(secondPart, 0, workSpace, firsPart.length, secondPart.length);
+        System.arraycopy(workSpace, firstPart.length, secondPart, 0, secondPart.length);
+        QuickSortThread quickSortThread = new QuickSortThread();
+        quickSortThread.setArr(secondPart);
+
+        bubbleSortThread.start();
+        quickSortThread.start();
+
+        firstPart = bubbleSortThread.getArr();
+        System.arraycopy(firstPart, 0, workSpace, 0, firstPart.length);
+        secondPart = quickSortThread.getArr();
+        System.arraycopy(secondPart, 0, workSpace, firstPart.length, secondPart.length);
 
         merge(workSpace);
     }
@@ -79,15 +99,23 @@ public class MergeSorter {
     private void mergeBubbleAndArraysSorts(int[] workSpace, int arrLength) {
         int middle = arrLength / 2;
 
-        int[] firsPart = new int[middle];
-        System.arraycopy(workSpace, 0, firsPart, 0, firsPart.length);
-        firsPart = bubbleSort(firsPart);
-        System.arraycopy(firsPart, 0, workSpace, 0, firsPart.length);
+        int[] firstPart = new int[middle];
+        System.arraycopy(workSpace, 0, firstPart, 0, firstPart.length);
+        BubbleSortThread bubbleSortThread = new BubbleSortThread();
+        bubbleSortThread.setArr(firstPart);
 
         int[] secondPart = new int[middle];
-        System.arraycopy(workSpace, firsPart.length, secondPart, 0, secondPart.length);
-        Arrays.sort(secondPart);
-        System.arraycopy(secondPart, 0, workSpace, firsPart.length, secondPart.length);
+        System.arraycopy(workSpace, firstPart.length, secondPart, 0, secondPart.length);
+        ArraysSortThread arraysSortThread = new ArraysSortThread();
+        arraysSortThread.setArr(secondPart);
+
+        bubbleSortThread.start();
+        arraysSortThread.start();
+
+        firstPart = bubbleSortThread.getArr();
+        System.arraycopy(firstPart, 0, workSpace, 0, firstPart.length);
+        secondPart = arraysSortThread.getArr();
+        System.arraycopy(secondPart, 0, workSpace, firstPart.length, secondPart.length);
 
         merge(workSpace);
     }
@@ -95,15 +123,23 @@ public class MergeSorter {
     private void mergeReverseBubbleAndQuickSorts(int[] workSpace, int arrLength) {
         int middle = arrLength / 2;
 
-        int[] firsPart = new int[middle];
-        System.arraycopy(workSpace, 0, firsPart, 0, firsPart.length);
-        firsPart = reverseBubble(firsPart);
-        System.arraycopy(firsPart, 0, workSpace, 0, firsPart.length);
+        int[] firstPart = new int[middle];
+        System.arraycopy(workSpace, 0, firstPart, 0, firstPart.length);
+        ReverseBubbleSortThread reverseBubbleSortThread = new ReverseBubbleSortThread();
+        reverseBubbleSortThread.setArr(firstPart);
 
         int[] secondPart = new int[middle];
-        System.arraycopy(workSpace, firsPart.length, secondPart, 0, secondPart.length);
-        secondPart = quickSort(secondPart);
-        System.arraycopy(secondPart, 0, workSpace, firsPart.length, secondPart.length);
+        System.arraycopy(workSpace, firstPart.length, secondPart, 0, secondPart.length);
+        QuickSortThread quickSortThread = new QuickSortThread();
+        quickSortThread.setArr(secondPart);
+
+        reverseBubbleSortThread.start();
+        quickSortThread.start();
+
+        firstPart = reverseBubbleSortThread.getArr();
+        System.arraycopy(firstPart, 0, workSpace, 0, firstPart.length);
+        secondPart = quickSortThread.getArr();
+        System.arraycopy(secondPart, 0, workSpace, firstPart.length, secondPart.length);
 
         merge(workSpace);
     }
@@ -111,15 +147,23 @@ public class MergeSorter {
     private void mergeReverseBubbleAndArraysSorts(int[] workSpace, int arrLength) {
         int middle = arrLength / 2;
 
-        int[] firsPart = new int[middle];
-        System.arraycopy(workSpace, 0, firsPart, 0, firsPart.length);
-        firsPart = reverseBubble(firsPart);
-        System.arraycopy(firsPart, 0, workSpace, 0, firsPart.length);
+        int[] firstPart = new int[middle];
+        System.arraycopy(workSpace, 0, firstPart, 0, firstPart.length);
+        ReverseBubbleSortThread reverseBubbleSortThread = new ReverseBubbleSortThread();
+        reverseBubbleSortThread.setArr(firstPart);
 
         int[] secondPart = new int[middle];
-        System.arraycopy(workSpace, firsPart.length, secondPart, 0, secondPart.length);
-        Arrays.sort(secondPart);
-        System.arraycopy(secondPart, 0, workSpace, firsPart.length, secondPart.length);
+        System.arraycopy(workSpace, firstPart.length, secondPart, 0, secondPart.length);
+        ArraysSortThread arraysSortThread = new ArraysSortThread();
+        arraysSortThread.setArr(secondPart);
+
+        reverseBubbleSortThread.start();
+        arraysSortThread.start();
+
+        firstPart = reverseBubbleSortThread.getArr();
+        System.arraycopy(firstPart, 0, workSpace, 0, firstPart.length);
+        secondPart = arraysSortThread.getArr();
+        System.arraycopy(secondPart, 0, workSpace, firstPart.length, secondPart.length);
 
         merge(workSpace);
     }
@@ -127,38 +171,28 @@ public class MergeSorter {
     private void mergeQuickAndArraysSorts(int[] workSpace, int arrLength) {
         int middle = arrLength / 2;
 
-        int[] firsPart = new int[middle];
-        System.arraycopy(workSpace, 0, firsPart, 0, firsPart.length);
-        firsPart = quickSort(firsPart);
-        System.arraycopy(firsPart, 0, workSpace, 0, firsPart.length);
+        int[] firstPart = new int[middle];
+        System.arraycopy(workSpace, 0, firstPart, 0, firstPart.length);
+        QuickSortThread quickSortThread = new QuickSortThread();
+        quickSortThread.setArr(firstPart);
 
         int[] secondPart = new int[middle];
-        System.arraycopy(workSpace, firsPart.length, secondPart, 0, secondPart.length);
-        Arrays.sort(secondPart);
-        System.arraycopy(secondPart, 0, workSpace, firsPart.length, secondPart.length);
+        System.arraycopy(workSpace, firstPart.length, secondPart, 0, secondPart.length);
+        ArraysSortThread arraysSortThread = new ArraysSortThread();
+        arraysSortThread.setArr(secondPart);
+
+        quickSortThread.start();
+        arraysSortThread.start();
+
+        firstPart = quickSortThread.getArr();
+        System.arraycopy(firstPart, 0, workSpace, 0, firstPart.length);
+        secondPart = arraysSortThread.getArr();
+        System.arraycopy(secondPart, 0, workSpace, firstPart.length, secondPart.length);
 
         merge(workSpace);
     }
 
-    private int[] bubbleSort(int[] workArr) {
-        BubbleSorter bubbleSorter = new BubbleSorter(workArr);
-        bubbleSorter.sort();
-        return bubbleSorter.getArr();
-    }
-
-    private int[] reverseBubble(int[] workArr) {
-        ReverseBubbleSorter reverseBubbleSorter = new ReverseBubbleSorter(workArr);
-        reverseBubbleSorter.sort();
-        return reverseBubbleSorter.getArr();
-    }
-
-    private int[] quickSort(int[] workArr) {
-        QuickSorter quickSorter = new QuickSorter(workArr);
-        quickSorter.sort();
-        return quickSorter.getArr();
-    }
-
-    private void merge(int[] workSpace) {
+    private synchronized void merge(int[] workSpace) {
         System.arraycopy(workSpace, 0, arr, 0, workSpace.length);
         Arrays.sort(arr);
     }
